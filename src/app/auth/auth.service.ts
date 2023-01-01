@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 type signupData = { name: string, email: string, password: string, confirmPassword: string };
 type loginDetails = { email: string, password: string };
-type loginResponse = { token: string, message: string, loggedIn: boolean };
+type loginResponse = { token: string, message: string, loggedIn: boolean, time: number };
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ type loginResponse = { token: string, message: string, loggedIn: boolean };
 export class AuthService {
   loggedIn = new EventEmitter();
   loggedInStatus = false;
+  experationDurationTime = 0;
   baseRoute = 'http://localhost:3000/user/'
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -38,6 +39,7 @@ export class AuthService {
           this.loggedInStatus = true;
           this.loggedIn.emit(true);
           localStorage.setItem('userData', JSON.stringify(response))
+          this.autoLogout(response.time)
           this.router.navigate(["/user"])
         }
       }
@@ -60,5 +62,17 @@ export class AuthService {
       this.loggedInStatus = true;
       this.loggedIn.emit(true);
     }
+  }
+
+  autoLogout(expirationTime: number) {
+    setTimeout(() => {
+      console.log("hi");
+      localStorage.clear();
+      this.router.navigate(["/user/login"])
+    }, expirationTime)
+  }
+
+  logOut() {
+    localStorage.clear();
   }
 }

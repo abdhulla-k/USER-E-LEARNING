@@ -8,11 +8,16 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent {
+  errorMessage = false;
 
   constructor(private authService: AuthService) { }
 
   login(formData: NgForm) {
-    localStorage.setItem('hi', "hi");
-    this.authService.login(formData.value);
+    if (formData.valid && formData.value.email && formData.value.password) {
+      this.errorMessage = false;
+      this.authService.login(formData.value);
+    } else {
+      this.errorMessage = true;
+    }
   }
 }
