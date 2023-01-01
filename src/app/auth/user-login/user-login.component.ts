@@ -12,6 +12,7 @@ export class UserLoginComponent {
   constructor(private authService: AuthService) { }
 
   login(formData: NgForm) {
+    localStorage.setItem('hi', "hi");
     this.authService.login(formData.value);
   }
 }

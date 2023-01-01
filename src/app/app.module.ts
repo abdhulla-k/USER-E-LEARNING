@@ -14,6 +14,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { PasswordValidatingDirective } from './shared/directives/password-validate.directive';
 import { FormsModule } from '@angular/forms';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     UserLoginComponent,
     UserHomeComponent,
     UserSignupComponent,
-    PasswordValidatingDirective
+    PasswordValidatingDirective,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,

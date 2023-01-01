@@ -12,6 +12,7 @@ type loginResponse = { token: string, message: string, loggedIn: boolean };
 export class AuthService {
   loggedIn = new EventEmitter();
   loggedInStatus = false;
+  baseRoute = 'http://localhost:3000/user/'
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -32,13 +33,32 @@ export class AuthService {
     ).subscribe(
       response => {
         console.log(response);
-        if(response.loggedIn === true) {
+        if (response.loggedIn === true) {
           console.log('logged In')
           this.loggedInStatus = true;
           this.loggedIn.emit(true);
+          localStorage.setItem('userData', JSON.stringify(response))
           this.router.navigate(["/user"])
         }
       }
     )
+  }
+
+  verifyUser(routeData: { id: string, token: string }) {
+    console.log(routeData);
+    this.http.get(
+      `${this.baseRoute}/verify/${routeData.id}/${routeData.token}`
+    ).subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  autoLogin() {
+    console.log(JSON.parse(localStorage.getItem('userData') || '{}'));
+    const data = JSON.parse(localStorage.getItem('userData') || '{}');
+    if (data.jwtToken) {
+      this.loggedInStatus = true;
+      this.loggedIn.emit(true);
+    }
   }
 }
