@@ -15,6 +15,7 @@ import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { PasswordValidatingDirective } from './shared/directives/password-validate.directive';
 import { FormsModule } from '@angular/forms';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
     UserHomeComponent,
     UserSignupComponent,
     PasswordValidatingDirective,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
