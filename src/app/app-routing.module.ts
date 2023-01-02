@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './auth-guard.service';
 import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
@@ -12,8 +13,8 @@ const routes: Routes = [
   {
     path: 'user', children: [
       { path: '', component: UserHomeComponent },
-      { path: 'login', component: UserLoginComponent },
-      { path: 'signup', component: UserSignupComponent },
+      { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },
+      { path: 'signup', canActivate: [AuthGuard], component: UserSignupComponent },
       { path: 'verify/:id/:token', component: VerifyEmailComponent }
     ]
   },
