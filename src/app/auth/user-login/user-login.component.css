@@ -22,11 +22,16 @@
 }
 
 .login-cintain {
-    width: 100%; height: 98vh;
+    width: 100%;
+    height: 98vh;
 }
 
 input.ng-invalid.ng-touched {
     border: 1px solid red;
+}
+
+.show-hint {
+    color: #ff9a00;
 }
 
 /* #form3Example4c {

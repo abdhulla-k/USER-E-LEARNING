@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class UserLoginComponent {
   errorMessage = false;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private store: Store) { }
 
   login(formData: NgForm) {
     if (formData.valid && formData.value.email && formData.value.password) {
