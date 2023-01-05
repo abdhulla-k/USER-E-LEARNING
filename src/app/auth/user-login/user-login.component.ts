@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { AuthService } from '../auth.service';
+import * as AuthActions from '../store/auth.actions';
 
 @Component({
   selector: 'app-user-login',
@@ -14,10 +15,13 @@ export class UserLoginComponent {
 
   constructor(private authService: AuthService, private store: Store) { }
 
+  // function to user login
   login(formData: NgForm) {
     if (formData.valid && formData.value.email && formData.value.password) {
       this.errorMessage = false;
-      this.authService.login(formData.value);
+      // this.authService.login(formData.value);
+      console.log("started login")
+      this.store.dispatch(new AuthActions.Login(formData.value));
     } else {
       this.errorMessage = true;
     }

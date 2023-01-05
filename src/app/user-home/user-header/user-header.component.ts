@@ -24,7 +24,7 @@ export class UserHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.loggedIn = this.authService.loggedInStatus;
 
-    // check is user is authenticated or not thrugh ngrx store
+    // Check whether the user is authenticated or not
     this.store.select('authentication').subscribe(authData => {
       // change the loggedIn variables value
       this.loggedIn = authData.loggedInStatus ? true : false;
