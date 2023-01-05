@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class VerifyEmailComponent implements OnInit {
   routeData = { id: '', token: '' }
+  verified = true;
 
   constructor(
     private authService: AuthService,
