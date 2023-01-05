@@ -20,7 +20,6 @@ const initialState: State = {
 export function authReducer(state = initialState, action: authActions.AuthActions) {
     switch (action.type) {
         case authActions.LOGIN:
-            console.log("reached reducer")
             return {
                 ...state,
                 user: {
@@ -28,12 +27,13 @@ export function authReducer(state = initialState, action: authActions.AuthAction
                 }
             }
         case authActions.LOGIN_COMPLETE:
-            console.log("login complete reached");
+            // for login first time
             return {
                 ...state,
                 loggedInStatus: action.payload
             }
         case authActions.LOGGEDIN:
+            // for auto login
             if (JSON.parse(localStorage.getItem('userData') || '{}').jwtToken) {
                 return {
                     ...state,
@@ -44,6 +44,13 @@ export function authReducer(state = initialState, action: authActions.AuthAction
                     ...state,
                     loggedInStatus: false
                 }
+            }
+        case authActions.LOGOUT:
+            // for logout
+            localStorage.clear();
+            return {
+                ...state,
+                loggedInStatus: false
             }
         default:
             return {

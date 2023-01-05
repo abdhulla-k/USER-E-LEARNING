@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { AuthService } from 'src/app/auth/auth.service';
+import { Store } from '@ngrx/store';
+
+import * as AuthActions from '../../auth/store/auth.actions';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,9 +11,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class DropdownComponent {
   @Input() title = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private store: Store) { }
 
   logOut() {
-    this.authService.logOut();
+    this.store.dispatch(new AuthActions.Logout());
   }
 }
