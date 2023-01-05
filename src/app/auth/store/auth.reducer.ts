@@ -2,6 +2,11 @@ import * as authActions from './auth.actions';
 
 export interface State {
     loggedInStatus: boolean;
+    emailVerified: boolean;
+    emailVerificationData: {
+        id: string,
+        token: string
+    }
     user: {
         email: string,
         password: string
@@ -11,6 +16,11 @@ export interface State {
 
 const initialState: State = {
     loggedInStatus: false,
+    emailVerified: false,
+    emailVerificationData: {
+        id: '',
+        token: ''
+    },
     user: {
         email: '',
         password: '',
@@ -19,6 +29,19 @@ const initialState: State = {
 
 export function authReducer(state = initialState, action: authActions.AuthActions) {
     switch (action.type) {
+        case authActions.VERIFY_EMAIL_START:
+            return {
+                ...state,
+                emailVerificationData: {
+                    id: action.payload.id,
+                    token: action.payload.token
+                }
+            }
+        case authActions.VERIFY_EMAIL_COMPLETED:
+            return {
+                ...state,
+                emailVerified: action.payload
+            }
         case authActions.LOGIN:
             return {
                 ...state,

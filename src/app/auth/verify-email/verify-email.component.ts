@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { Store } from '@ngrx/store';
 
-import { AuthService } from '../auth.service';
+import * as AuthActions from '../store/auth.actions';
+import * as fromApp from '../../store/app.reducer';
 
 @Component({
   selector: 'app-verify-email',
@@ -10,11 +12,11 @@ import { AuthService } from '../auth.service';
 })
 export class VerifyEmailComponent implements OnInit {
   routeData = { id: '', token: '' }
-  verified = true;
+  verified = false;
 
   constructor(
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
     this.routeData = {
@@ -27,6 +29,13 @@ export class VerifyEmailComponent implements OnInit {
       this.routeData.token = data['token']
     })
 
-    this.authService.verifyUser(this.routeData);
+    this.store.dispatch(new AuthActions.VerifyEmailStart(this.routeData));
+    this.store.select('authentication').subscribe(authData => {
+      if(authData.emailVerified) {
+        this.verified = true;
+      } else {
+        this.verified = false;
+      }
+    })
   }
 }
