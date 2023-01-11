@@ -1,0 +1,61 @@
+/* left image */
+.horizon-line {
+    background-color: #84A98C;
+    height: 5px;
+    width: 102%;
+    margin-top: 30%;
+    margin-left: -23px;
+}
+
+.content {
+    position: absolute;
+    height: 103px;
+    margin-left: 0px;
+    margin-top: 141px;
+}
+
+/* right image */
+.horizon-line-2 {
+    background-color: #84A98C;
+    height: 5px;
+    width: 197%;
+    margin-top: 30%;
+    margin-left: -643px;
+}
+
+.text-2 {
+    margin-right: 695px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1399px) {
+
+    .horizon-line {
+        background-color: #84A98C;
+        height: 5px;
+        width: 102%;
+        margin-top: 30%;
+        margin-left: -17px;
+    }
+}
+
+@media screen and (min-width: 419px) and (max-width: 600px) {
+
+    .horizon-line {
+        background-color: #84A98C;
+        height: 5px;
+        width: 102%;
+        margin-top: 35%;
+        margin-left: -17px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 419px) {
+
+    .horizon-line {
+        background-color: #84A98C;
+        height: 5px;
+        width: 102%;
+        margin-top: 50%;
+        margin-left: -17px;
+    }
+}

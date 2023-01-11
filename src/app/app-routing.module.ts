@@ -7,12 +7,18 @@ import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
   {
     path: 'user', children: [
-      { path: '', component: UserHomeComponent },
+      {
+        path: '', component: UserHomeComponent,  children: [
+          { path: '', component: HomeSectionsComponent },
+          { path: 'cources', component: HomeSectionsComponent },
+        ]
+      },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },
       { path: 'signup', canActivate: [AuthGuard], component: UserSignupComponent },
       { path: 'verify/:id/:token', component: VerifyEmailComponent }

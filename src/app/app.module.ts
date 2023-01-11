@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import * as fromApp from './store/app.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
+import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
+import { HomePartsComponent } from './user-home/home-sections/home-parts/home-parts.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { AuthEffects } from './auth/store/auth.effects';
     UserSignupComponent,
     PasswordValidatingDirective,
     VerifyEmailComponent,
-    DropdownComponent
+    DropdownComponent,
+    HomeSectionsComponent,
+    HomePartsComponent
   ],
   imports: [
     BrowserModule,
