@@ -1,5 +1,5 @@
 <div class="container">
     <div class="courses-cont">
-        <app-course></app-course>
+        <app-course *ngFor="let i of courses" [course]="i" ></app-course>
     </div>
 </div>
