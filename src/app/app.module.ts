@@ -22,6 +22,8 @@ import * as fromApp from './store/app.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
 import { HomePartsComponent } from './user-home/home-sections/home-parts/home-parts.component';
+import { CoursesComponent } from './user-home/courses/courses.component';
+import { CourseComponent } from './user-home/courses/course/course.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HomePartsComponent } from './user-home/home-sections/home-parts/home-pa
     VerifyEmailComponent,
     DropdownComponent,
     HomeSectionsComponent,
-    HomePartsComponent
+    HomePartsComponent,
+    CoursesComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
