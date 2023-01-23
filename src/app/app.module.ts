@@ -24,6 +24,7 @@ import { HomeSectionsComponent } from './user-home/home-sections/home-sections.c
 import { HomePartsComponent } from './user-home/home-sections/home-parts/home-parts.component';
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { CourseComponent } from './user-home/courses/course/course.component';
+import { FooterComponent } from './user-home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CourseComponent } from './user-home/courses/course/course.component';
     HomeSectionsComponent,
     HomePartsComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
