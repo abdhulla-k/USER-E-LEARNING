@@ -1,8 +1,62 @@
-<div class="card" style="margin: 5px;">
-    <!-- <img class="card-img-top" src="http://localhost:3000/images/1674054154116_now_typing.png" alt="Card image cap"> -->
-    <img class="card-img-top" src="http://localhost:3000/{{ course.imgPath }}" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{ course.title }}</h5>
-        <p class="card-text">{{ course.price }}</p>
+<div 
+    style="margin: 5px;" 
+    class="products-single fix">
+    <div 
+        class="box-img-hover">
+        <img 
+            src="http://localhost:3000/{{ course.imgPath }}" 
+            style="max-height: 250px; min-height: 250px;"
+            class="img-fluid" 
+            alt="Image">
+        <div 
+            class="mask-icon">
+            <ul>
+                <li>
+                    <a
+                        href="#"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="View">
+                        <fa-icon
+                            [icon]="eye"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="Add to wishlist">
+                        <fa-icon
+                            [icon]="like"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="Add to cart">
+                        <fa-icon
+                            [icon]="addToCart"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+            </ul>
+            <a 
+                class="cart"
+                href="#">
+                Add to Cart
+            </a>
+        </div>
+    </div>
+    <div class="why-text">
+        <h4>{{ course.title }}</h4>
+        <h5>₹ {{ course.price }}</h5>
     </div>
 </div>
