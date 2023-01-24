@@ -25,6 +25,7 @@ import { HomePartsComponent } from './user-home/home-sections/home-parts/home-pa
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { CourseComponent } from './user-home/courses/course/course.component';
 import { FooterComponent } from './user-home/footer/footer.component';
+import { DetailsComponent } from './user-home/courses/course/details/details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FooterComponent } from './user-home/footer/footer.component';
     HomePartsComponent,
     CoursesComponent,
     CourseComponent,
-    FooterComponent
+    FooterComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
