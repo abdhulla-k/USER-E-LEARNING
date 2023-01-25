@@ -15,4 +15,8 @@ export class CourseServiceService {
   getCourses(index: number) {
     return this.http.get<Observable<Course[]>>(`${this.baseUrl}/getCourses/${index}`)
   }
+
+  fetchCourseDetails(courseId: string) {
+    return this.http.get<Observable<Course>>(`${this.baseUrl}/courses/details/${courseId}`)
+  }
 }
