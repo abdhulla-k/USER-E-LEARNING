@@ -27,9 +27,17 @@ export class CourseServiceService {
 
   // to add course to cart
   addToCart(courseId: string) {
-    this.http.post(`${this.baseUrl}/addToCart`, { courseId: courseId }).subscribe(data => {
-      console.log(data);
-    })
+    this.http.post<{message: string}>(`${this.baseUrl}/addToCart`, { courseId: courseId })
+      .pipe(
+        catchError((err) => {
+          this.mainService.errorMessageEmitter.emit(err.error.message);
+          console.log('error')
+          return throwError(() => err);
+        })
+      )
+      .subscribe(data => {
+        this.mainService.successMessageEmitter.emit(data.message);
+      })
   }
 
   // to add course to wishlist

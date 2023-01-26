@@ -1,9 +1,9 @@
 <div class="container">
     <div style="height: 100vh; padding-top: 20px; padding-bottom: 20px;">
-        <div id="big-screen-details" class="big-screen">
-            <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                <b><u>{{ course.course.title }}</u></b>
-            </h4>
+        <div id="big-screen-details" style="background-color: #84A98C; border: 2px solid black; padding: 20px;" class="big-screen">
+            <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                <u><b>{{ course.course.title }}</b></u>
+            </h1>
             <div style="width: 100%; text-align: center;">
                 <h6 style="font-family: sans-serif;">{{ course.course.description }}</h6>
                 <br>
@@ -23,10 +23,10 @@
                 </div> -->
             </div>
 
-            <div style=" text-align: center;">
-                <h6><b>Modules</b></h6>
+            <div style="text-align: center;">
+                <h2><b>Modules</b></h2>
             </div>
-            <div style="border: 2px solid black; text-align: center;">
+            <div style="text-align: center;">
                 <p *ngFor="let i of course.course.modules">{{ i.videoTitle }}</p>
             </div>
 
@@ -37,13 +37,13 @@
                 alt="">
                 <a *ngIf="!course.entrolled" style="width: 100%; margin-top: 5px;" class="btn btn-dark">Entroll now</a>
                 <a *ngIf="course.entrolled" style="width: 100%; margin-top: 5px;" class="btn btn-dark">Go to course</a>
-                <div style="text-align: center;" id="short-screen-details">
+                <div style="text-align: center; background-color: #84A98C;" id="short-screen-details">
                     <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
                         <b><u>{{ course.course.title }}</u></b>
                     </h4>
                     <div style="width: 100%; text-align: center;">
                         <h6 style="font-family: sans-serif;"><span>Description:</span> {{ course.course.description }}</h6>
-                        <h6><span><b>Instructor:</b></span> {{ course.course.teacher }}</h6>
+                        <h6><span style="font-weight: 600;">Instructor:</span>{{ course.course.teacher }}</h6>
                     </div>
                     <div style=" text-align: center;">
                         <h6>Modules</h6>
