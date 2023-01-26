@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -26,6 +26,7 @@ import { CoursesComponent } from './user-home/courses/courses.component';
 import { CourseComponent } from './user-home/courses/course/course.component';
 import { FooterComponent } from './user-home/footer/footer.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
+import { TokenAddingInterceptorService } from './token.interceptor.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,11 @@ import { DetailsComponent } from './user-home/courses/course/details/details.com
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenAddingInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

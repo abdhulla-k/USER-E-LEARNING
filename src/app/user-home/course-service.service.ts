@@ -19,4 +19,11 @@ export class CourseServiceService {
   fetchCourseDetails(courseId: string) {
     return this.http.get<Observable<Course>>(`${this.baseUrl}/courses/details/${courseId}`)
   }
+
+  addToCart(courseId: string) {
+    console.log(courseId);
+    this.http.post(`${this.baseUrl}/addToCart`, { courseId: courseId }).subscribe(data => {
+      console.log(data);
+    })
+  }
 }
