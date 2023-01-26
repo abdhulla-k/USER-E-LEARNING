@@ -31,6 +31,7 @@ import { ErrorMessageComponent } from './shared/components/error-message/error-m
 import { MessageDirective } from './shared/directives/message.directive';
 import { SuccessMessagesComponent } from './shared/components/success-messages/success-messages.component';
 import { SuccessMessageDirective } from './shared/directives/success-message.directive';
+import { ProfileComponent } from './user-home/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SuccessMessageDirective } from './shared/directives/success-message.dir
     FooterComponent,
     DetailsComponent,
     ErrorMessageComponent,
-    SuccessMessagesComponent
+    SuccessMessagesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

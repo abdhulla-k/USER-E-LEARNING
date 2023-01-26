@@ -10,6 +10,7 @@ import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
+import { ProfileComponent } from './user-home/profile/profile.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
         path: '', component: UserHomeComponent, children: [
           { path: '', component: HomeSectionsComponent },
           { path: 'cources', component: CoursesComponent },
-          { path: 'courses/details/:courseId', component: DetailsComponent }
+          { path: 'courses/details/:courseId', component: DetailsComponent },
+          { path: 'profile', component: ProfileComponent}
         ]
       },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },
