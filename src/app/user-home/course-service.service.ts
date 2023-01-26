@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { MainService } from '../main.service';
@@ -34,11 +34,18 @@ export class CourseServiceService {
 
   // to add course to wishlist
   addToWishlist(courseId: string) {
-    this.http.post(`${this.baseUrl}/addToWishlist`, { courseId: courseId }).subscribe(data => {
-      console.log(data);
-    }, (err) => {
-      this.mainService.errorMessageEmitter.emit(err.error.message)
-    })
+    this.http.post<{ message: string }>(`${this.baseUrl}/addToWishlist`, { courseId: courseId })
+      .pipe(
+        catchError((err) => {
+          this.mainService.errorMessageEmitter.emit(err.error.message);
+          console.log('error')
+          return throwError(() => err);
+        })
+      )
+      .subscribe((data: { message: string }) => {
+        console.log(data);
+        this.mainService.successMessageEmitter.emit(data.message);
+      });
   }
 
 }

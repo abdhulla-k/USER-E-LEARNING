@@ -4,6 +4,8 @@ import { EventEmitter, Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class MainService {
-    errorMessage = ''
-    errorMessageEmitter = new EventEmitter()
+    errorMessage = '';
+    successMessage = '';
+    errorMessageEmitter = new EventEmitter<string>()
+    successMessageEmitter = new EventEmitter<string>()
 }
