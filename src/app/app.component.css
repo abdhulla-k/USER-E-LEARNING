@@ -1,0 +1,7 @@
+.error-message {
+    position: absolute;
+    z-index: 200;
+    text-align: center;
+    margin-top: 60px;
+    width: 100%;
+}

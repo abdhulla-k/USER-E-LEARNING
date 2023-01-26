@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
+import { MainService } from '../main.service';
 import { Course } from '../shared/models/course';
 
 @Injectable({
@@ -11,7 +12,11 @@ import { Course } from '../shared/models/course';
 export class CourseServiceService {
   baseUrl = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private mainService: MainService
+  ) { }
+
   getCourses(index: number) {
     return this.http.get<Observable<Course[]>>(`${this.baseUrl}/getCourses/${index}`)
   }
@@ -31,6 +36,8 @@ export class CourseServiceService {
   addToWishlist(courseId: string) {
     this.http.post(`${this.baseUrl}/addToWishlist`, { courseId: courseId }).subscribe(data => {
       console.log(data);
+    }, (err) => {
+      this.mainService.errorMessageEmitter.emit(err.error.message)
     })
   }
 

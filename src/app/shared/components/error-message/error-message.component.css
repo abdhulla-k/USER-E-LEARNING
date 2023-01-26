@@ -1,0 +1,35 @@
+.hide {
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: translateX(250px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fedOut {
+    from {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(250px);
+        opacity: 0;
+    }
+}
+
+.animate {
+    animation: fadeIn 500ms ease-out backwards;
+}
+
+.out-animate {
+    animation: fedOut 500ms ease-in forwards;
+}

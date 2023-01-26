@@ -27,6 +27,8 @@ import { CourseComponent } from './user-home/courses/course/course.component';
 import { FooterComponent } from './user-home/footer/footer.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
 import { TokenAddingInterceptorService } from './token.interceptor.service';
+import { ErrorMessageComponent } from './shared/components/error-message/error-message.component';
+import { MessageDirective } from './shared/directives/message.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { TokenAddingInterceptorService } from './token.interceptor.service';
     UserHomeComponent,
     UserSignupComponent,
     PasswordValidatingDirective,
+    MessageDirective,
     VerifyEmailComponent,
     DropdownComponent,
     HomeSectionsComponent,
@@ -45,7 +48,8 @@ import { TokenAddingInterceptorService } from './token.interceptor.service';
     CoursesComponent,
     CourseComponent,
     FooterComponent,
-    DetailsComponent
+    DetailsComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,
