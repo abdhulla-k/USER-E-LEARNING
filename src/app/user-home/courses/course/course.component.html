@@ -25,7 +25,7 @@
                 </li>
                 <li>
                     <a
-                        href="#"
+                        (click)="addToWishlist()"
                         data-toggle="tooltip"
                         data-placement="right"
                         title="Add to wishlist">
@@ -50,14 +50,14 @@
             </ul>
             <a 
                 class="cart"
-                href="#">
+                (click)="addToUserCart()">
                 Add to Cart
             </a>
-            <a 
+            <!-- <a 
                 class="cart"
                 href="#">
                 Go to cart
-            </a>
+            </a> -->
         </div>
     </div>
     <div class="why-text">

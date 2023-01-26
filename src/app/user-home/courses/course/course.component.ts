@@ -15,7 +15,13 @@ export class CourseComponent {
 
   constructor(private coursService: CourseServiceService) { }
 
+  // to add course to cart
   addToUserCart() {
     this.coursService.addToCart(this.course._id)
+  }
+
+  // to add a course to wishlist
+  addToWishlist() {
+    this.coursService.addToWishlist(this.course._id)
   }
 }

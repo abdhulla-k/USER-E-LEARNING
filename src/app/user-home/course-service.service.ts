@@ -20,10 +20,18 @@ export class CourseServiceService {
     return this.http.get<Observable<Course>>(`${this.baseUrl}/courses/details/${courseId}`)
   }
 
+  // to add course to cart
   addToCart(courseId: string) {
-    console.log(courseId);
     this.http.post(`${this.baseUrl}/addToCart`, { courseId: courseId }).subscribe(data => {
       console.log(data);
     })
   }
+
+  // to add course to wishlist
+  addToWishlist(courseId: string) {
+    this.http.post(`${this.baseUrl}/addToWishlist`, { courseId: courseId }).subscribe(data => {
+      console.log(data);
+    })
+  }
+
 }
