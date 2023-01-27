@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 
 import { environment } from '../../environments/environment';
@@ -11,6 +11,7 @@ import { Course } from '../shared/models/course';
 })
 export class CourseServiceService {
   baseUrl = environment.baseUrl;
+  selectedVideoPathEmitter = new EventEmitter();
 
   constructor(
     private http: HttpClient,

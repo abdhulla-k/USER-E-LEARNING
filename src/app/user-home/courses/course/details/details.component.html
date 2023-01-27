@@ -1,57 +1,29 @@
 <div class="container">
-    <div style="height: 100vh; padding-top: 20px; padding-bottom: 20px;">
-        <div id="big-screen-details" style="background-color: #84A98C; border: 2px solid black; padding: 20px;" class="big-screen">
-            <h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                <u><b>{{ course.course.title }}</b></u>
-            </h1>
-            <div style="width: 100%; text-align: center;">
-                <h6 style="font-family: sans-serif;">{{ course.course.description }}</h6>
-                <br>
-                <h6>Instructor: {{ course.course.teacher }}</h6>
-                <br>
-                <!-- <div style="padding: 0px;" class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text">5 stars</label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text">4 stars</label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text">3 stars</label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text">2 stars</label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text">1 star</label>
-                </div> -->
-            </div>
-
-            <div style="text-align: center;">
-                <h2><b>Modules</b></h2>
-            </div>
-            <div style="text-align: center;">
-                <p *ngFor="let i of course.course.modules">{{ i.videoTitle }}</p>
-            </div>
-
-        </div>
-        <div class="side-small-screen">
-            <img class="img-fluid"
-                src="http://localhost:3000/{{ course.course.imgPath }}"
-                alt="">
-                <a *ngIf="!course.entrolled" style="width: 100%; margin-top: 5px;" class="btn btn-dark">Entroll now</a>
-                <a *ngIf="course.entrolled" style="width: 100%; margin-top: 5px;" class="btn btn-dark">Go to course</a>
-                <div style="text-align: center; background-color: #84A98C;" id="short-screen-details">
-                    <h4 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                        <b><u>{{ course.course.title }}</u></b>
-                    </h4>
-                    <div style="width: 100%; text-align: center;">
-                        <h6 style="font-family: sans-serif;"><span>Description:</span> {{ course.course.description }}</h6>
-                        <h6><span style="font-weight: 600;">Instructor:</span>{{ course.course.teacher }}</h6>
-                    </div>
-                    <div style=" text-align: center;">
-                        <h6>Modules</h6>
-                    </div>
-                    <div style="border: 2px solid black; text-align: center;">
-                        <p *ngFor="let i of course.course.modules">{{ i.videoTitle }}</p>
-                    </div>
-                </div>
-        </div>
+    <div>
+        <h1
+            style="font-family: 'Courier New', Courier, monospace;">
+            <b>
+                {{ course.title }}
+            </b>
+        </h1>
+    </div>
+    <app-play></app-play>
+    <div 
+        class="col-3"
+        style="float: right;">
+        <app-course-module
+            *ngFor="let i of course.course.modules let index = index"
+            [module]="i"
+            class="col-11"
+            style="float: right; background-color: #D9D9D9; margin: 2px; padding: 2px;">
+        </app-course-module>
+        <app-course-module
+            *ngFor="let i of course.course.modules let index = index"
+            [module]="i"
+            class="col-11"
+            style="float: right; background-color: #D9D9D9; margin: 2px; padding: 2px;">
+        </app-course-module>
+    </div>
+    <div style="background-color: #D9D9D9; width: 75%; height: 200px;">
     </div>
 </div>

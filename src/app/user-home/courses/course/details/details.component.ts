@@ -17,13 +17,13 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(private courseService: CourseServiceService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.course);
     // subscribe to params
     this.courseIdSubscription = this.activatedRoute.params.subscribe(params => {
       this.courseId = params['courseId'];
     })
 
     this.courseDetailsFetchSubscription = this.courseService.fetchCourseDetails(this.courseId).subscribe(data => {
-      console.log(data);
       this.course = data;
     })
   }

@@ -32,6 +32,8 @@ import { MessageDirective } from './shared/directives/message.directive';
 import { SuccessMessagesComponent } from './shared/components/success-messages/success-messages.component';
 import { SuccessMessageDirective } from './shared/directives/success-message.directive';
 import { ProfileComponent } from './user-home/profile/profile.component';
+import { ModuleComponent } from './user-home/courses/course/details/module/module.component';
+import { PlayComponent } from './user-home/courses/course/details/play/play.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { ProfileComponent } from './user-home/profile/profile.component';
     DetailsComponent,
     ErrorMessageComponent,
     SuccessMessagesComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModuleComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,
