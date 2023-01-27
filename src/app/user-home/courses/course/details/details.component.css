@@ -54,6 +54,9 @@
     justify-content: center;
 }
 
+.hide-big {
+    display: none;
+}
 
 
 @media screen and (min-width: 0px) and (max-width: 600px) {
@@ -71,4 +74,11 @@
         justify-content: center;
     }
 
+    .hide-modules {
+        display: none;
+    }
+
+    .hide-big {
+        display: block;
+    }
 }
