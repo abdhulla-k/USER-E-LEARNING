@@ -3,7 +3,8 @@
     <strong class="d-none d-sm-block ms-1 light-text">{{title}}</strong>
     <div class="dropdown-content">
       <div style="height: 18px; background-color: rgb(32.2%,47.5%,43.5%);"></div>
-      <a >My Cart</a>
+      <a [routerLink]="['/user', 'profile']" >Profile</a>
+      <a [routerLink]="['/user', 'myCart']" >My Cart</a>
       <a >My Wishlist</a>
       <a >Entrolled courses</a>
       <a (click)="logOut()">Logout</a>

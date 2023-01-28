@@ -2,9 +2,9 @@
 .horizon-line {
     background-color: #84A98C;
     height: 5px;
-    width: 102%;
+    width: 197%;
     margin-top: 30%;
-    margin-left: -23px;
+    margin-left: -643px;
 }
 
 .content {
@@ -21,6 +21,10 @@
     width: 197%;
     margin-top: 30%;
     margin-left: -643px;
+}
+
+.align-img {
+    z-index: 90;
 }
 
 .text-2 {
@@ -57,5 +61,11 @@
         width: 102%;
         margin-top: 50%;
         margin-left: -17px;
+    }
+}
+
+@media screen and (min-width: 1398px) {
+    .max-width-ctr {
+        max-width: 550px;
     }
 }

@@ -34,6 +34,7 @@ import { SuccessMessageDirective } from './shared/directives/success-message.dir
 import { ProfileComponent } from './user-home/profile/profile.component';
 import { ModuleComponent } from './user-home/courses/course/details/module/module.component';
 import { PlayComponent } from './user-home/courses/course/details/play/play.component';
+import { CartComponent } from './user-home/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { PlayComponent } from './user-home/courses/course/details/play/play.comp
     SuccessMessagesComponent,
     ProfileComponent,
     ModuleComponent,
-    PlayComponent
+    PlayComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

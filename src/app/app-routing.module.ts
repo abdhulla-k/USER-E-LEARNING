@@ -7,6 +7,7 @@ import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { CartComponent } from './user-home/cart/cart.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
           { path: '', component: HomeSectionsComponent },
           { path: 'cources', component: CoursesComponent },
           { path: 'courses/details/:courseId', component: DetailsComponent },
-          { path: 'profile', component: ProfileComponent}
+          { path: 'profile', component: ProfileComponent},
+          { path: 'myCart', component: CartComponent}
         ]
       },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },
