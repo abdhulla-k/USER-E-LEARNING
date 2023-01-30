@@ -232,6 +232,11 @@ ol {
     animation: bounceY 0.9s linear;
 }
 
+.img-setup {
+    max-height: 250px;
+    min-height: 250px;
+}
+
 @keyframes bounceY {
     0% {
         transform: translateY(-205px);
@@ -319,5 +324,13 @@ ol {
     97%,
     100% {
         -webkit-transform: translateY(0px);
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1399px) {
+
+    .img-setup {
+        max-height: 173px;
+        min-height: 173px;
     }
 }
