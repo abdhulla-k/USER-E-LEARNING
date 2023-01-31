@@ -22,7 +22,7 @@ const routes: Routes = [
           { path: '', component: HomeSectionsComponent },
           { path: 'cources', component: CoursesComponent },
           { path: 'courses/details/:courseId', component: DetailsComponent },
-          { path: 'profile', component: ProfileComponent},
+          { path: 'userProfile', component: ProfileComponent},
           { path: 'myCart', component: CartComponent}
         ]
       },
@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'verify/:id/:token', component: VerifyEmailComponent }
     ]
   },
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  { path: '', redirectTo: 'user/home', pathMatch: 'full' },
   { path: '**', component: EmptyRouteComponent }
 ];
 

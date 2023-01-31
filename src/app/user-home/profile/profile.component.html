@@ -6,17 +6,24 @@
             <div class="row background-color">
                 <!-- profile image -->
                 <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5 show-text">
+                    <div 
+                        class="d-flex flex-column align-items-center text-center p-3 py-5 show-text"
+                        (click)="selectImage.click()">
                         <img 
                             class="rounded-circle mt-5" 
                             width="150px" 
-                            style="cursor: pointer;"
-                            [src]="userData.userDetails.profile_img">
+                            style="cursor: pointer; min-height: 137px;"
+                            [src]="imgPath">
                         <span 
                             class="font-weight-bold text-over-img" 
                             style="color: grey;">
                             Choose
                         </span>
+                        <input 
+                            type="file"
+                            style="display: none;"
+                            #selectImage
+                            (change)="uploadProfilePick($event)">
                     </div>
                 </div>
                 <!-- /profile image -->
