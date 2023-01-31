@@ -49,68 +49,65 @@
                         </div>
     
                         <!-- form -->
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                                <label class="labels">home</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="enter your home name or flat number"
-                                    id="home"
-                                    value="">
+                        <form (ngSubmit)="saveLinks(linkForm)" #linkForm="ngForm">
+                            <div class="row mt-3">
+                                <h3 
+                                    style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-align: center;">
+                                    Links
+                                </h3>
+
+                                <div class="col-md-12">
+                                    <label class="labels">LinkdIn</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="linkdIn profile url"
+                                        id="home"
+                                        ngModel
+                                        name="linkdIn"
+                                        value="{{ userData.userDetails.links.linkdIn }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Git Hub</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Github profile url"
+                                        id="street"
+                                        ngModel
+                                        name="gitHub"
+                                        value="{{ userData.userDetails.links.gitHub }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Twitter</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="district"
+                                        ngModel
+                                        name="twitter"
+                                        placeholder="Twitter account url"
+                                        value="{{ userData.userDetails.links.twitter }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Instagram</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="city" 
+                                        ngModel
+                                        name="instagram"
+                                        placeholder="Instagram account url"
+                                        value="{{ userData.userDetails.links.instagram }}">
+                                </div>
+                                
                             </div>
-                            <div class="col-md-12">
-                                <label class="labels">Street</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="enter your Street name"
-                                    id="street"
-                                    value="">
+                            <div class="mt-5 text-center">
+                                <button type="submit" class="btn btn-dark profile-button col-12">Save Links</button>
                             </div>
-                            <div class="col-md-12">
-                                <label class="labels">District</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="district"
-                                    placeholder="enter your district"
-                                    value="">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">City</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="city" 
-                                    placeholder="enter your city" 
-                                    value="">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">State</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="state" 
-                                    placeholder="enter your state" 
-                                    value="">
-                            </div>
-    
-                            <div class="col-md-12"><label class="labels">Zip</label>
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="zip" 
-                                    placeholder="enter your zip code" 
-                                    value="">
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-                            <a class="btn btn-dark profile-button col-12">Add Address</a>
-                        </div>
-    
+                        </form>
+                        <!-- /form -->
                     </div>
-                    <!-- /form -->
                 </div>
                 <!-- /user data -->
 
@@ -125,13 +122,23 @@
                             <div 
                                 class="col-md-12" 
                                 style="text-align: center;">
-                                <h3>Your courses</h3>
+                                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Your courses</h3>
                             </div>
-                            <div class="col-md-12" style="cursor: pointer;">
+                            <div
+                                *ngFor="let course of userData.entrolledCourse"
+                                class="col-md-12"
+                                style="cursor: pointer;">
                                 <p
                                     class="form-control course">
                                     <b>Title of the course</b>
                                 </p>
+                            </div>
+                            <div class="col-md-12" style="cursor: pointer;">
+                                <a
+                                    class="btn btn-dark col-12"
+                                    [routerLink]="['/user', 'myLearning']">
+                                    <b>Go To My Learning</b>
+                                </a>
                             </div>
                         </div>
                         <!-- /no entrolled courses -->
@@ -139,7 +146,7 @@
                         <!-- entrolled coures list -->
                         <div *ngIf="userData.entrolledCourse" class="row mt-3">
                             <div class="col-md-12" style="text-align: center;">
-                                <h3>Your courses</h3>
+                                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Your courses</h3>
                             </div>
                             <div class="col-md-12" style="cursor: pointer;">
                                 <p

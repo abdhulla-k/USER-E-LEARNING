@@ -1,8 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { EventEmitter, Injectable } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 import { environment } from "src/environments/environment";
 import { userData } from "./shared/models/user-data";
+import { userProfileUpdateResponse } from "./shared/models/link-update-response";
 
 @Injectable({
     providedIn: 'root'
@@ -19,5 +21,11 @@ export class MainService {
     getProdileData() {
         console.log('called profile picker')
         return this.http.get<userData>(`${this.baseUrl}/userProfile`)
+    }
+
+    // to save user's public profile links
+    saveUserLinks(links: NgForm) {
+        // send links to server
+        return this.http.post<userProfileUpdateResponse>(`${this.baseUrl}/saveUserLinks`, links.value)
     }
 }
