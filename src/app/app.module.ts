@@ -36,7 +36,7 @@ import { ModuleComponent } from './user-home/courses/course/details/module/modul
 import { PlayComponent } from './user-home/courses/course/details/play/play.component';
 import { CartComponent } from './user-home/cart/cart.component';
 import { CartItemComponent } from './user-home/cart/cart-item/cart-item.component';
-import { CartPricePipe } from './user-home/cart/cart-price.pipe';
+import { CartPricePipe } from './shared/pipes/cart-price.pipe';
 import { WishlistComponent } from './user-home/wishlist/wishlist.component';
 
 @NgModule({

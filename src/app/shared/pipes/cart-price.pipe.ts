@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from "@angular/core";
 
-import { CartPipeInput } from '../../shared/models/cart-pipe-input';
+import { CartPipeInput } from '../models/cart-pipe-input';
 
 @Pipe({
     name: 'cartPrice'
