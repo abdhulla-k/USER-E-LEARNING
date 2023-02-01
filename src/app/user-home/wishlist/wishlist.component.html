@@ -6,7 +6,7 @@
 
             <div *ngIf="!wishlist.data.length" class="table-wishlist" style="text-align: center;">
                 <div><h3>List is empty</h3></div>
-                <button class="btn btn-dark">Go to Courses</button>
+                <button [routerLink]="['/user', 'cources']" class="btn btn-dark">Go to Courses</button>
             </div>
 
             <!-- cart element table -->
@@ -21,7 +21,7 @@
                     </thead>
                     <tbody class="align-middle">
                                     <!-- cart table row -->
-                                    <tr *ngFor="let course of wishlist.data">
+                                    <tr *ngFor="let course of wishlist.data let index = index">
                                         <!-- table colemn for images -->
                                         <td class="align-middle">
                                             <img 
@@ -45,7 +45,9 @@
                                         <!-- /table colemn for product price -->
 
                                         <!-- table colemn for delet product from cart button -->
-                                        <td class="align-middle">
+                                        <td 
+                                            class="align-middle"
+                                            (click)="deleteWishlist(course.course_details[0]._id, index)">
                                             <fa-icon 
                                                 [icon]="removeIcon"
                                                 class="toggle-menue hide-menue"

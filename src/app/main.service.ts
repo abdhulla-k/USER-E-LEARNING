@@ -52,4 +52,9 @@ export class MainService {
     getWishlistData() {
         return this.http.get<WishlistResponse>(`${this.baseUrl}/getWishlists`)
     }
+
+    // to remove an item from wishlist
+    removeFromWishlist(id: string) {
+        return this.http.delete(`${this.baseUrl}/removeFromWishlist/${id}`)
+    }
 }
