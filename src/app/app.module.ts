@@ -35,6 +35,7 @@ import { ProfileComponent } from './user-home/profile/profile.component';
 import { ModuleComponent } from './user-home/courses/course/details/module/module.component';
 import { PlayComponent } from './user-home/courses/course/details/play/play.component';
 import { CartComponent } from './user-home/cart/cart.component';
+import { CartItemComponent } from './user-home/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { CartComponent } from './user-home/cart/cart.component';
     ProfileComponent,
     ModuleComponent,
     PlayComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

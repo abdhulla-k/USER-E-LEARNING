@@ -1,0 +1,31 @@
+<div  class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+                <div>
+                    <img src="{{imgBasePath}}{{ course.course_details[0].imgPath }}"
+                        class="img-fluid rounded-3" alt="Shopping item"
+                        style="width: 65px;">
+                </div>
+            </div>
+            <div class="d-flex flex-row align-items-center">
+                
+                <div style="width: auto; margin-left: 10px;">
+                    <h5 class="mb-0">{{ course.course_details[0].title }}</h5>
+                </div>
+                <div style="width: 80px; margin-left: 10px; color: green;">
+                    <h5 class="mb-0">₹ {{ course.course_details[0].price}}</h5>
+                </div>
+                <a 
+                    (click)="removeFromCart()" 
+                    style="color: #cecece;">
+                    <fa-icon 
+                        [icon]="removeIcon"
+                        class="toggle-menue hide-menue"
+                        style="color: red; margin-left: 15px;">
+                    </fa-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

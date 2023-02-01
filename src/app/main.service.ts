@@ -6,6 +6,7 @@ import { environment } from "src/environments/environment";
 import { userData } from "./shared/models/user-data";
 import { userProfileUpdateResponse } from "./shared/models/link-update-response";
 import { ImageUploadResponse } from "./shared/models/upload-profile-img";
+import { CartResponse } from "./shared/models/cart-response"
 
 @Injectable({
     providedIn: 'root'
@@ -33,5 +34,10 @@ export class MainService {
     // to upload profile pic
     uploadImage(uploadImage: FormData) {
         return this.http.post<ImageUploadResponse>(`${this.baseUrl}/saveProfilePic`, uploadImage)
+    }
+
+    // to get all cart data
+    getCart() {
+        return this.http.get<CartResponse>(`${this.baseUrl}/getCart`)
     }
 }

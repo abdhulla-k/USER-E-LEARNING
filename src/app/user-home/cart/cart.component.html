@@ -12,30 +12,14 @@
 
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
-                                        <p class="mb-0">You have 4 items in your cart</p>
+                                        <p class="mb-0">You have {{ cartData.data.length }} items in your cart</p>
                                     </div>
                                 </div>
 
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="d-flex flex-row align-items-center">
-                                                <div>
-                                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                                        class="img-fluid rounded-3" alt="Shopping item"
-                                                        style="width: 65px;">
-                                                </div>
-                                            </div>
-                                            <div class="d-flex flex-row align-items-center">
-                                                <div style="width: 80px;">
-                                                    <h5 class="mb-0">$900</h5>
-                                                </div>
-                                                <a href="#!" style="color: #cecece;"><i
-                                                        class="fas fa-trash-alt"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <app-cart-item
+                                    *ngFor="let course of cartData.data"
+                                    [course]=course>
+                                </app-cart-item>
 
                             </div>
                             <div class="col-lg-5">
