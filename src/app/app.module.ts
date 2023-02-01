@@ -36,6 +36,7 @@ import { ModuleComponent } from './user-home/courses/course/details/module/modul
 import { PlayComponent } from './user-home/courses/course/details/play/play.component';
 import { CartComponent } from './user-home/cart/cart.component';
 import { CartItemComponent } from './user-home/cart/cart-item/cart-item.component';
+import { CartPricePipe } from './user-home/cart/cart-price.pipe';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CartItemComponent } from './user-home/cart/cart-item/cart-item.componen
     ModuleComponent,
     PlayComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    CartPricePipe
   ],
   imports: [
     BrowserModule,

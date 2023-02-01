@@ -20,6 +20,7 @@ export class CartComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (data: CartResponse) => {
           this.cartData = data;
+          console.log(data.data)
         },
         error: (err) => {
           console.log(err);
