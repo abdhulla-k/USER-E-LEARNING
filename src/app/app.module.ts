@@ -38,6 +38,7 @@ import { CartComponent } from './user-home/cart/cart.component';
 import { CartItemComponent } from './user-home/cart/cart-item/cart-item.component';
 import { CartPricePipe } from './shared/pipes/cart-price.pipe';
 import { WishlistComponent } from './user-home/wishlist/wishlist.component';
+import { TextReducerPipe } from './shared/pipes/text-reducer.pipe';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { WishlistComponent } from './user-home/wishlist/wishlist.component';
     CartComponent,
     CartItemComponent,
     CartPricePipe,
-    WishlistComponent
+    WishlistComponent,
+    TextReducerPipe
   ],
   imports: [
     BrowserModule,
