@@ -17,6 +17,7 @@ export class MainService {
     successMessage = '';
     errorMessageEmitter = new EventEmitter<string>()
     successMessageEmitter = new EventEmitter<string>()
+    deletedFromCart = new EventEmitter<number>()
 
     constructor(private http: HttpClient) { }
 
@@ -39,5 +40,10 @@ export class MainService {
     // to get all cart data
     getCart() {
         return this.http.get<CartResponse>(`${this.baseUrl}/getCart`)
+    }
+
+    // to remove one item from cart
+    removeFromCart(id: string) {
+        return this.http.delete(`${this.baseUrl}/removeFromCart/${id}`)
     }
 }

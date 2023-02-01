@@ -10,24 +10,30 @@ import { CartResponse } from '../../shared/models/cart-response';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit, OnDestroy {
-  cartDataSubscription!: Subscription;
+  $cartDataSubscription!: Subscription;
+  $deleteFromCartSubscription!: Subscription;
   cartData!: CartResponse;
-  constructor(private mainService: MainService) {}
+  constructor(private mainService: MainService) { }
 
   ngOnInit(): void {
-    this.cartDataSubscription = this.mainService.getCart()
+    this.$cartDataSubscription = this.mainService.getCart()
       .subscribe({
         next: (data: CartResponse) => {
           this.cartData = data;
-          console.log(data);
         },
         error: (err) => {
           console.log(err);
         }
       })
+
+    // to delete course from cart data
+    this.$deleteFromCartSubscription = this.mainService.deletedFromCart.subscribe((index: number) => {
+      this.cartData.data.splice(index, 1);
+    })
   }
 
   ngOnDestroy(): void {
-    this.cartDataSubscription.unsubscribe();
+    this.$cartDataSubscription.unsubscribe();
+    this.$deleteFromCartSubscription.unsubscribe();
   }
 }
