@@ -7,6 +7,7 @@ import { userData } from "./shared/models/user-data";
 import { userProfileUpdateResponse } from "./shared/models/link-update-response";
 import { ImageUploadResponse } from "./shared/models/upload-profile-img";
 import { CartResponse } from "./shared/models/cart-response"
+import { WishlistResponse } from "./shared/models/wishlit-response"
 
 @Injectable({
     providedIn: 'root'
@@ -45,5 +46,10 @@ export class MainService {
     // to remove one item from cart
     removeFromCart(id: string) {
         return this.http.delete(`${this.baseUrl}/removeFromCart/${id}`)
+    }
+
+    // to get wishlist data
+    getWishlistData() {
+        return this.http.get<WishlistResponse>(`${this.baseUrl}/getWishlists`)
     }
 }

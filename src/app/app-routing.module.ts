@@ -13,6 +13,7 @@ import { CoursesComponent } from './user-home/courses/courses.component';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
 import { ProfileComponent } from './user-home/profile/profile.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { WishlistComponent } from './user-home/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
           { path: 'cources', component: CoursesComponent },
           { path: 'courses/details/:courseId', component: DetailsComponent },
           { path: 'userProfile', component: ProfileComponent},
-          { path: 'myCart', component: CartComponent}
+          { path: 'myCart', component: CartComponent},
+          { path: 'wishlist', component: WishlistComponent}
         ]
       },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 import { faRemove } from '@fortawesome/free-solid-svg-icons'
