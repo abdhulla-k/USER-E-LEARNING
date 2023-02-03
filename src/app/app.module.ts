@@ -39,6 +39,7 @@ import { CartItemComponent } from './user-home/cart/cart-item/cart-item.componen
 import { CartPricePipe } from './shared/pipes/cart-price.pipe';
 import { WishlistComponent } from './user-home/wishlist/wishlist.component';
 import { TextReducerPipe } from './shared/pipes/text-reducer.pipe';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [

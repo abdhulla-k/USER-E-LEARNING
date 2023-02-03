@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CourseServiceService } from 'src/app/user-home/course-service.service';
@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
   constructor(private courseService: CourseServiceService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.course);
     // subscribe to params
     this.courseIdSubscription = this.activatedRoute.params.subscribe(params => {
       this.courseId = params['courseId'];

@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { MainService } from 'src/app/main.service';
 import { CartResponse } from '../../shared/models/cart-response';
+
 
 @Component({
   selector: 'app-cart',
@@ -13,6 +15,9 @@ export class CartComponent implements OnInit, OnDestroy {
   $cartDataSubscription!: Subscription;
   $deleteFromCartSubscription!: Subscription;
   cartData!: CartResponse;
+  paymentLoading = false;
+  cardDetailsError = false;
+
   constructor(private mainService: MainService) { }
 
   ngOnInit(): void {
@@ -31,6 +36,18 @@ export class CartComponent implements OnInit, OnDestroy {
     this.$deleteFromCartSubscription = this.mainService.deletedFromCart.subscribe((index: number) => {
       this.cartData.data.splice(index, 1);
     })
+  }
+
+  async pay(cardForm: NgForm) {
+    if(cardForm.value.holdersName && cardForm.value.cardName) {
+      this.cardDetailsError = false;
+      this.paymentLoading = true;
+      // const stripe = await loadStripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+      
+    } else {
+      this.paymentLoading = false;
+      this.cardDetailsError = true;
+    }
   }
 
   ngOnDestroy(): void {

@@ -57,4 +57,5 @@ export class MainService {
     removeFromWishlist(id: string) {
         return this.http.delete(`${this.baseUrl}/removeFromWishlist/${id}`)
     }
+
 }
