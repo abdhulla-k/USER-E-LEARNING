@@ -30,12 +30,18 @@ export class MainService {
     // to save user's public profile links
     saveUserLinks(links: NgForm) {
         // send links to server
-        return this.http.post<userProfileUpdateResponse>(`${this.baseUrl}/saveUserLinks`, links.value)
+        return this.http.post<userProfileUpdateResponse>(
+            `${this.baseUrl}/saveUserLinks`,
+            links.value
+        )
     }
 
     // to upload profile pic
     uploadImage(uploadImage: FormData) {
-        return this.http.post<ImageUploadResponse>(`${this.baseUrl}/saveProfilePic`, uploadImage)
+        return this.http.post<ImageUploadResponse>(
+            `${this.baseUrl}/saveProfilePic`,
+            uploadImage
+        )
     }
 
     // to get all cart data
@@ -56,6 +62,11 @@ export class MainService {
     // to remove an item from wishlist
     removeFromWishlist(id: string) {
         return this.http.delete(`${this.baseUrl}/removeFromWishlist/${id}`)
+    }
+
+    // to pay cart amount using stripe
+    payMoney() {
+        return this.http.get(`${this.baseUrl}/placeCartOrder`)
     }
 
 }

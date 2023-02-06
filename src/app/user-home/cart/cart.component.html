@@ -12,17 +12,17 @@
 
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
-                                        <p class="mb-0">You have {{ cartData.data.length }} items in your cart</p>
+                                        <p class="mb-0">You have {{ cartData?.data?.length }} items in your cart</p>
                                     </div>
                                 </div>
 
                                 <app-cart-item
-                                    *ngFor="let course of cartData.data let index = index"
+                                    *ngFor="let course of cartData?.data let index = index"
                                     [index]="index"
                                     [course]=course>
                                 </app-cart-item>
 
-                                <button [routerLink]="['/user', 'cources']" *ngIf="!cartData.data.length" type="button" class="btn btn-dark btn-block btn-lg">
+                                <button [routerLink]="['/user', 'cources']" *ngIf="!cartData?.data?.length" type="button" class="btn btn-dark btn-block btn-lg">
                                     <div class="d-flex justify-content-between">
                                         <span>Go to Courses</span>
                                     </div>
@@ -36,56 +36,27 @@
                                     <div class="card-body">
                                         <h5>Payment Details</h5>
                                         <br>
-                                        <form class="mt-4" ngForm #cardForm="ngForm">
-                                            <div class="form-outline form-white mb-4">
-                                                <input 
-                                                    type="text" 
-                                                    ngModel
-                                                    #emailLocal="ngModel"
-                                                    name="holdersName"
-                                                    id="typeName" 
-                                                    class="form-control form-control-lg"
-                                                    siez="17" 
-                                                    placeholder="Cardholder's Name" />
-                                                <label class="form-label" for="typeName">Cardholder's Name</label>
-                                            </div>
-
-                                            <div class="form-outline form-white mb-4">
-                                                <input 
-                                                    type="text"
-                                                    ngModel
-                                                    name="cardName"
-                                                    required
-                                                    id="typeText"
-                                                    class="form-control form-control-lg"
-                                                    siez="17"
-                                                    placeholder="1234 5678 9012 3457"
-                                                    minlength="19"
-                                                    maxlength="19" />
-                                                <label class="form-label" for="typeText">Card Number</label>
-                                            </div>
-                                            <div *ngIf="cardDetailsError" class="alert alert-danger">
-                                                fill all the fields before placing order
-                                            </div>
-
-                                        </form>
+                                        <div *ngFor="let i of cartData?.data" class="d-flex justify-content-between">
+                                            <p class="mb-2">{{ i.course_details[0].title }}</p>
+                                            <p class="mb-2">₹ {{ i.course_details[0].price }}</p>
+                                        </div>
 
                                         <hr class="my-4">
 
                                         <div class="d-flex justify-content-between">
                                             <p class="mb-2">Total</p>
-                                            <p class="mb-2">{{ cartData.data | cartPrice }}</p>
+                                            <p *ngIf="cartData" class="mb-2">{{ cartData.data | cartPrice }}</p>
                                         </div>
 
                                         <button
                                             *ngIf="!paymentLoading"
-                                            (click)="pay(cardForm)"
+                                            (click)="pay()"
                                             required
-                                            [disabled]="!cartData.data.length"
+                                            [disabled]="!cartData?.data?.length"
                                             type="submit"
                                             class="btn btn-dark btn-block">
                                             <div class="d-flex justify-content-between">
-                                                <span>Place Order</span>
+                                                <span>Checkout</span>
                                             </div>
                                         </button>
                                         <button
