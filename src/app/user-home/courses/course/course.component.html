@@ -2,9 +2,10 @@
     style="margin: 5px;" 
     class="products-single fix">
     <div 
-        class="box-img-hover">
+        class="box-img-hover"
+        style="background-color: rgb(69, 68, 68);">
         <img 
-            src="http://localhost:3000/{{ course.imgPath }}"
+            src="http://localhost:3000/{{ course?.imgPath }}"
             class="img-fluid img-setup" 
             alt="Image">
         <div 
@@ -12,7 +13,7 @@
             <ul>
                 <li>
                     <a
-                        [routerLink]="['/user', 'courses','details', course._id]"
+                        [routerLink]="['/user', 'courses','details', course?._id]"
                         data-toggle="tooltip"
                         data-placement="right"
                         title="View">

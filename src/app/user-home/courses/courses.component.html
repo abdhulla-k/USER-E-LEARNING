@@ -3,4 +3,11 @@
     <div class="courses-cont">
         <app-course *ngFor="let i of courses" [course]="i" ></app-course>
     </div>
+    <div
+        style="
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-align: center;"
+        *ngIf="!courses?.length">
+        <h2>Course is empty</h2>
+    </div>
 </div>
