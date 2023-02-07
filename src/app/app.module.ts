@@ -40,6 +40,7 @@ import { CartPricePipe } from './shared/pipes/cart-price.pipe';
 import { WishlistComponent } from './user-home/wishlist/wishlist.component';
 import { TextReducerPipe } from './shared/pipes/text-reducer.pipe';
 import { environment } from 'src/environments/environment';
+import { VerifyPaymentComponent } from './user-home/cart/verify-payment/verify-payment.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { environment } from 'src/environments/environment';
     CartItemComponent,
     CartPricePipe,
     WishlistComponent,
-    TextReducerPipe
+    TextReducerPipe,
+    VerifyPaymentComponent
   ],
   imports: [
     BrowserModule,

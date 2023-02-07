@@ -69,4 +69,11 @@ export class MainService {
         return this.http.get(`${this.baseUrl}/placeCartOrder`)
     }
 
+    // verify payment
+    verifyPayment(token: string) {
+        return this.http.post(`${environment.baseUrl}/payment/verify`, {
+            token: token
+        })
+    } 
+
 }

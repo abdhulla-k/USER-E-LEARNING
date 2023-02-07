@@ -8,6 +8,7 @@ import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
 import { CartComponent } from './user-home/cart/cart.component';
+import { VerifyPaymentComponent } from './user-home/cart/verify-payment/verify-payment.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
@@ -23,14 +24,15 @@ const routes: Routes = [
           { path: '', component: HomeSectionsComponent },
           { path: 'cources', component: CoursesComponent },
           { path: 'courses/details/:courseId', component: DetailsComponent },
-          { path: 'userProfile', component: ProfileComponent},
-          { path: 'myCart', component: CartComponent},
-          { path: 'wishlist', component: WishlistComponent}
+          { path: 'userProfile', component: ProfileComponent },
+          { path: 'myCart', component: CartComponent },
+          { path: 'wishlist', component: WishlistComponent }
         ]
       },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },
       { path: 'signup', canActivate: [AuthGuard], component: UserSignupComponent },
-      { path: 'verify/:id/:token', component: VerifyEmailComponent }
+      { path: 'verify/:id/:token', component: VerifyEmailComponent },
+      { path: 'payment/verify', component: VerifyPaymentComponent }
     ]
   },
   { path: '', redirectTo: 'user/home', pathMatch: 'full' },
