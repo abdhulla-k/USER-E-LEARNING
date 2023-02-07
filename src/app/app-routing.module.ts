@@ -12,6 +12,7 @@ import { VerifyPaymentComponent } from './user-home/cart/verify-payment/verify-p
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
 import { CoursesComponent } from './user-home/courses/courses.component';
 import { HomeSectionsComponent } from './user-home/home-sections/home-sections.component';
+import { MyCoursesComponent } from './user-home/my-courses/my-courses.component';
 import { ProfileComponent } from './user-home/profile/profile.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { WishlistComponent } from './user-home/wishlist/wishlist.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
           { path: 'courses/details/:courseId', component: DetailsComponent },
           { path: 'userProfile', component: ProfileComponent },
           { path: 'myCart', component: CartComponent },
-          { path: 'wishlist', component: WishlistComponent }
+          { path: 'wishlist', component: WishlistComponent },
+          { path: 'myCourses', component: MyCoursesComponent },
         ]
       },
       { path: 'login', canActivate: [AuthGuard], component: UserLoginComponent },

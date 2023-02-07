@@ -6,8 +6,9 @@ import { environment } from "src/environments/environment";
 import { userData } from "./shared/models/user-data";
 import { userProfileUpdateResponse } from "./shared/models/link-update-response";
 import { ImageUploadResponse } from "./shared/models/upload-profile-img";
-import { CartResponse } from "./shared/models/cart-response"
-import { WishlistResponse } from "./shared/models/wishlit-response"
+import { CartResponse } from "./shared/models/cart-response";
+import { WishlistResponse } from "./shared/models/wishlit-response";
+import { GetMyCourseResponse } from "./shared/models/get-my-courses";
 
 @Injectable({
     providedIn: 'root'
@@ -75,5 +76,10 @@ export class MainService {
             token: token
         })
     } 
+
+    // to get all enrolled courses
+    getMyCourses(index: number) {
+        return this.http.get<GetMyCourseResponse>(`${this.baseUrl}/enrolledCourses/`)
+    }
 
 }
