@@ -31,12 +31,29 @@ export class ProfileComponent implements OnInit, OnDestroy {
         console.log(data);
         this.userData = data;
         this.imgPath = `${environment.fileGettUrl}${this.userData.userDetails.profile_img}`
+        this.linkForm.value.instagram = data.userDetails.links.gitHub;
       })
   }
 
   // function to save links
   saveLinks(linkForm: NgForm) {
-    if (linkForm.value.twitter && linkForm.value.instagram && linkForm.value.linkdIn) {
+    // this.linkForm = linkForm;
+    // rejecx pattern to check the link validity
+    const instagramRegex = new RegExp('^(https?://)?(www\.)?instagram\.com/');
+    const twitterRegex = new RegExp('^(https?://)?(www\.)?twitter\.com/');
+    const linkedinRegex = new RegExp('^(https?://)?(www\.)?linkedin\.com/');
+    const githubRegex = new RegExp('^(https?://)?(www\.)?github\.com/');
+    
+    // set previous data to form
+    linkForm.value.instagram = linkForm.value.instagram ? linkForm.value.instagram : this.userData.userDetails.links.instagram;
+    linkForm.value.twitter = linkForm.value.twitter ? linkForm.value.twitter : this.userData.userDetails.links.twitter;
+    linkForm.value.linkdIn = linkForm.value.linkdIn ? linkForm.value.linkdIn : this.userData.userDetails.links.linkdIn;
+    linkForm.value.gitHub = linkForm.value.gitHub ? linkForm.value.gitHub : this.userData.userDetails.links.gitHub;
+
+    if (instagramRegex.test(linkForm.value.instagram) &&
+        twitterRegex.test(linkForm.value.twitter) &&
+        linkedinRegex.test(linkForm.value.linkdIn) &&
+        githubRegex.test(linkForm.value.gitHub)) {
       this.userLinkSaveSubscription = this.mainService.saveUserLinks(linkForm).subscribe({
         next: (data: userProfileUpdateResponse) => {
           this.userData.userDetails.links = data.userDetails;
@@ -47,7 +64,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         }
       })
     } else {
-      this.mainService.errorMessageEmitter.emit('make sure you filled all the fields')
+      this.mainService.errorMessageEmitter.emit('make sure you filled all the fields and the links are valid')
     }
   }
 

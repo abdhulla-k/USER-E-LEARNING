@@ -110,7 +110,12 @@
                                 
                             </div>
                             <div class="mt-5 text-center">
-                                <button type="submit" class="btn btn-dark profile-button col-12">Save Links</button>
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-dark profile-button col-12"
+                                    [disabled]="!linkForm.touched">
+                                    Save Links
+                                </button>
                             </div>
                         </form>
                         <!-- /form -->
