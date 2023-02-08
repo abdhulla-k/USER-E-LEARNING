@@ -29,7 +29,7 @@
                 </thead>
                 <tbody class="align-middle">
                     <!-- cart table row -->
-                    <tr *ngFor="let course of mycourses.courses">
+                    <tr *ngFor="let course of mycourses?.courses">
                         <!-- table colemn for images -->
                         <td class="align-middle">
                             <img src="{{fileGettUrl}}{{ course.course_details[0].imgPath }}" alt=""
