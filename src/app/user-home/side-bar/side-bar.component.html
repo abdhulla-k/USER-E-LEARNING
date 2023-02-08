@@ -46,7 +46,7 @@
     <a 
       class="d-flex"
       *ngIf="loggedIn"
-      (click)="closeNav()"
+      (click)="openProfile()"
       [routerLink]="['/user', 'userProfile']">
         <img 
             src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" 
@@ -54,7 +54,7 @@
             height="22"
             alt="Black and White Portrait of a Man" 
             loading="lazy" />
-          <strong>My Account</strong>
+          <strong>My Account <b>&#8594;</b></strong>
     </a>
     <a
       class="d-flex"
@@ -71,3 +71,38 @@
     </a>
   </div>
   <!-- /side nav -->
+
+
+  <div 
+  id="mySidenav" 
+  class="sidenav" 
+  [ngStyle]="{width: profile? '250px' : '0px' }"
+  style="z-index: 101;">
+    <div>
+      <!-- <img class="side-nav-logo" src=""> -->
+      <a class="swafty-back-button" (click)="openProfile()">&#8592; back</a>
+      <a class="closebtn" (click)="closeNav()">&times;</a>
+      <hr>
+    </div>
+    <a
+      class="d-flex"
+      [routerLink]="['/user/']"
+      (click)="closeNav()">
+        <strong>Home</strong>
+    </a>
+    <a (click)="closeNav()" [routerLink]="['/user', 'userProfile']" >
+      <strong>Profile</strong>
+    </a>
+    <a (click)="closeNav()" [routerLink]="['/user', 'myCart']" >
+      <strong>My Cart</strong>
+    </a>
+    <a (click)="closeNav()" [routerLink]="['/user', 'wishlist']">
+      <strong>My Wishlist</strong>
+    </a>
+    <a (click)="closeNav()" [routerLink]="['/user', 'myCourses']">
+      <strong>My Courses</strong>
+    </a>
+    <a (click)="logOut()">
+      <strong>Logout</strong>
+    </a>
+  </div>
