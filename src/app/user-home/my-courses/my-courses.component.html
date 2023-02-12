@@ -32,19 +32,19 @@
                     <tr *ngFor="let course of mycourses?.courses">
                         <!-- table colemn for images -->
                         <td class="align-middle">
-                            <img src="{{fileGettUrl}}{{ course.course_details[0].imgPath }}" alt=""
+                            <img src="{{fileGettUrl}}{{ course.course_details[0]?.imgPath }}" alt=""
                                 style="width: 50px;">
                         </td>
 
                         <td class="align-middle">
-                            {{ course.course_details[0].title }}
+                            {{ course.course_details[0]?.title }}
                         </td>
 
                         <td class="align-middle">
-                            {{course.course_details[0].price}}
+                            {{course.course_details[0]?.price}}
                         </td>
 
-                        <td [routerLink]="['/user', 'courses', 'details', course.course_details[0]._id]" class="align-middle">
+                        <td [routerLink]="['/user', 'courses', 'details', course.course_details[0]?._id]" class="align-middle">
                             <fa-icon
                                 [icon]="eye"
                                 class="toggle-menue hide-menue"

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { switchMap, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 import * as AuthActions from './auth.actions';
 
@@ -17,7 +18,7 @@ export class AuthEffects {
       switchMap((authData: AuthActions.Login) => {
         return this.http
           .post<loginResponse>(
-            'http://localhost:3000/user/login',
+            `${environment.baseUrl}/login`,
             {
               email: authData.payload.email,
               password: authData.payload.password

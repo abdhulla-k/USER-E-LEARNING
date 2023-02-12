@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 type signupData = { name: string, email: string, password: string, confirmPassword: string };
 type loginDetails = { email: string, password: string };
@@ -13,23 +14,23 @@ export class AuthService {
   loggedIn = new EventEmitter();
   loggedInStatus = false;
   experationDurationTime = 0;
-  baseRoute = 'http://localhost:3000/user/'
+  baseRoute = environment.baseUrl;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(signupData: signupData) {
     this.http.post<signupData>(
-      'http://localhost:3000/user/signup',
+      `${this.baseRoute}/signup`,
       signupData).subscribe(
         data => {
-          // console.log(data);
+          console.log(data);
         }
       )
   }
 
   login(loginData: loginDetails) {
     this.http.post<loginResponse>(
-      'http://localhost:3000/user/login',
+      `${this.baseRoute}/login`,
       loginData
     ).subscribe(
       response => {
@@ -66,7 +67,6 @@ export class AuthService {
 
   autoLogout(expirationTime: number) {
     setTimeout(() => {
-      console.log("hi");
       localStorage.clear();
       this.router.navigate(["/user/login"])
     }, expirationTime)

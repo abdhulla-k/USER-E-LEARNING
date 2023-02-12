@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CourseServiceService } from 'src/app/user-home/course-service.service';
@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
     this.courseDetailsFetchSubscription = this.courseService.fetchCourseDetails(this.courseId).subscribe(data => {
       this.course = data;
+      this.courseService.selectedVideoPathEmitter.emit(this.course.course.modules[0].videoPath);
     })
   }
 

@@ -20,7 +20,6 @@ export class UserLoginComponent {
     if (formData.valid && formData.value.email && formData.value.password) {
       this.errorMessage = false;
       // this.authService.login(formData.value);
-      console.log("started login")
       this.store.dispatch(new AuthActions.Login(formData.value));
     } else {
       this.errorMessage = true;

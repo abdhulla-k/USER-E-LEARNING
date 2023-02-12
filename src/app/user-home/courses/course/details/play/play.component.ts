@@ -1,6 +1,7 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CourseServiceService } from 'src/app/user-home/course-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-play',
@@ -20,7 +21,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       .subscribe((path: string) => {
         const splitted = path.split('/')
         this.name = splitted[splitted.length - 1]
-        this.videoUrl = `http://localhost:3000/user/playVideo/${this.name}`;
+        this.videoUrl = `${environment.baseUrl}/playVideo/${this.name}`;
       })
   }
 
