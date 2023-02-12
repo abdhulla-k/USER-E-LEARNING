@@ -42,6 +42,7 @@ import { TextReducerPipe } from './shared/pipes/text-reducer.pipe';
 import { environment } from 'src/environments/environment';
 import { VerifyPaymentComponent } from './user-home/cart/verify-payment/verify-payment.component';
 import { MyCoursesComponent } from './user-home/my-courses/my-courses.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { MyCoursesComponent } from './user-home/my-courses/my-courses.component'
     WishlistComponent,
     TextReducerPipe,
     VerifyPaymentComponent,
-    MyCoursesComponent
+    MyCoursesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

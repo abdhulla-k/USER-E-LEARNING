@@ -7,6 +7,7 @@ import { UserLoginComponent } from './auth/user-login/user-login.component';
 import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CartComponent } from './user-home/cart/cart.component';
 import { VerifyPaymentComponent } from './user-home/cart/verify-payment/verify-payment.component';
 import { DetailsComponent } from './user-home/courses/course/details/details.component';
@@ -37,8 +38,8 @@ const routes: Routes = [
       { path: 'payment/verify', component: VerifyPaymentComponent }
     ]
   },
-  { path: '', redirectTo: 'user/home', pathMatch: 'full' },
-  { path: '**', component: EmptyRouteComponent }
+  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
