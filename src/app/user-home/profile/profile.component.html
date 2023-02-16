@@ -1,0 +1,183 @@
+<div class="container">
+    <div class="row px-xl-5">
+        <!-- <%- include("../includes/user/user-sidebar.ejs") %> -->
+    
+        <div class="col-lg-12 col-md-12">
+            <div class="row background-color">
+                <!-- profile image -->
+                <div class="col-md-3 border-right">
+                    <div 
+                        class="d-flex flex-column align-items-center text-center p-3 py-5 show-text"
+                        (click)="selectImage.click()">
+                        <img 
+                            class="rounded-circle mt-5" 
+                            width="150px" 
+                            style="cursor: pointer; min-height: 137px;"
+                            [src]="imgPath">
+                        <span 
+                            class="font-weight-bold text-over-img" 
+                            style="color: grey;">
+                            Choose
+                        </span>
+                        <input 
+                            type="file"
+                            style="display: none;"
+                            #selectImage
+                            (change)="uploadProfilePick($event)">
+                    </div>
+                </div>
+                <!-- /profile image -->
+
+                <!-- user data -->
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="" role="alert">
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Name</label>
+                                <input 
+                                    value="{{ userData?.userDetails?.name }}"
+                                    type="text"
+                                    disabled
+                                    class="form-control"
+                                    placeholder="first name">
+                            </div>
+    
+                            <div class="col-md-6">
+                                <label class="labels">Email</label>
+                                <input
+                                    value="{{ userData?.userDetails?.email }}"
+                                    type="text"
+                                    disabled
+                                    class="form-control"
+                                    placeholder="email">
+                            </div>
+                        </div>
+    
+                        <!-- form -->
+                        <form (ngSubmit)="saveLinks(linkForm)" #linkForm="ngForm">
+                            <div class="row mt-3">
+                                <h3 
+                                    style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-align: center;">
+                                    Links
+                                </h3>
+
+                                <div class="col-md-12">
+                                    <label class="labels">LinkdIn</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="linkdIn profile url"
+                                        id="home"
+                                        ngModel
+                                        name="linkdIn"
+                                        value="{{ userData?.userDetails?.links?.linkdIn }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Git Hub</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Github profile url"
+                                        id="street"
+                                        ngModel
+                                        name="gitHub"
+                                        value="{{ userData?.userDetails?.links?.gitHub }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Twitter</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="district"
+                                        ngModel
+                                        name="twitter"
+                                        placeholder="Twitter account url"
+                                        value="{{ userData?.userDetails?.links?.twitter }}">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Instagram</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="city" 
+                                        ngModel
+                                        name="instagram"
+                                        placeholder="Instagram account url"
+                                        value="{{ userData?.userDetails?.links?.instagram }}">
+                                </div>
+                                
+                            </div>
+                            <div class="mt-5 text-center">
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-dark profile-button col-12"
+                                    [disabled]="!linkForm.touched">
+                                    Save Links
+                                </button>
+                            </div>
+                        </form>
+                        <!-- /form -->
+                    </div>
+                </div>
+                <!-- /user data -->
+
+                <!-- entrolled courses -->
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                        
+                        <!-- no entrolled courses -->
+                        <div
+                            *ngIf="!userData?.entrolledCourse"
+                            class="row mt-3">
+                            <div 
+                                class="col-md-12" 
+                                style="text-align: center;">
+                                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Your courses</h3>
+                            </div>
+                            <div
+                                *ngFor="let course of userData?.entrolledCourse"
+                                class="col-md-12"
+                                style="cursor: pointer;">
+                                <p
+                                    class="form-control course">
+                                    <b>Title of the course</b>
+                                </p>
+                            </div>
+                            <div class="col-md-12" style="cursor: pointer;">
+                                <a
+                                    class="btn btn-dark col-12"
+                                    [routerLink]="['/user', 'myLearning']">
+                                    <b>Go To My Learning</b>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /no entrolled courses -->
+
+                        <!-- entrolled coures list -->
+                        <div *ngIf="userData.entrolledCourse" class="row mt-3">
+                            <div class="col-md-12" style="text-align: center;">
+                                <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Your courses</h3>
+                            </div>
+                            <div class="col-md-12" style="cursor: pointer;">
+                                <p
+                                    class="form-control course">
+                                    <b>You didn't entrolled any course</b>
+                                </p>
+                                <a
+                                    class="btn btn-dark col-12"
+                                    [routerLink]="['/user', 'cources']">
+                                    <b>Go To Courses</b>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /entrolled coures list -->
+
+                    </div>
+                </div>
+                <!-- /entrolled courses -->
+            </div>
+        </div>
+    </div>
+</div>

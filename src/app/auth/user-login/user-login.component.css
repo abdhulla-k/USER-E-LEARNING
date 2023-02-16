@@ -5,10 +5,13 @@
     border-top-left-radius: 35px;
     border-bottom-left-radius: 35px;
     height: 98vh;
+    float: right;
 }
 
 .section-left {
     width: 50%;
+    float: left;
+    min-height: 20px;
 }
 
 .links {
@@ -22,11 +25,16 @@
 }
 
 .login-cintain {
-    width: 100%; height: 98vh;
+    width: 100%;
+    height: 98vh;
 }
 
 input.ng-invalid.ng-touched {
     border: 1px solid red;
+}
+
+.show-hint {
+    color: #ff9a00;
 }
 
 /* #form3Example4c {
@@ -44,9 +52,10 @@ input.ng-invalid.ng-touched {
         border-radius: 35px;
         height: 400px;
         /* margin: 25px 41px 0px 41px; */
-        margin-right: 41px;
+        /* margin-right: 41px; */
         margin-left: 41px;
         margin-top: 45%;
+        margin-right: 9.5%;
         margin-bottom: 45%;
     }
 
@@ -72,6 +81,7 @@ input.ng-invalid.ng-touched {
 
     .section-left {
         width: 0%;
+        height: 0px;
     }
 }
 

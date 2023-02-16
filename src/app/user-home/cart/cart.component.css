@@ -1,0 +1,9 @@
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.background {
+    background-color: rgb(32.2%,47.5%,43.5%);
+}

@@ -1,0 +1,11 @@
+.courses-cont {
+    display: grid; 
+    grid-template-columns: 33.36% 33.36% 33.36%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    .courses-cont {
+        display: grid; 
+        grid-template-columns: auto;
+    }
+}

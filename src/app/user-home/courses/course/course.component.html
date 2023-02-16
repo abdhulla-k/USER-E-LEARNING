@@ -1,0 +1,67 @@
+<div 
+    style="margin: 5px;" 
+    class="products-single fix">
+    <div 
+        class="box-img-hover"
+        style="background-color: rgb(69, 68, 68);">
+        <img 
+            src="{{fileGettUrl}}{{ course?.imgPath }}"
+            class="img-fluid img-setup" 
+            alt="Image">
+        <div 
+            class="mask-icon">
+            <ul>
+                <li>
+                    <a
+                        [routerLink]="['/user', 'courses','details', course?._id]"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="View">
+                        <fa-icon
+                            [icon]="eye"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        (click)="addToWishlist()"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="Add to wishlist">
+                        <fa-icon
+                            [icon]="like"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        (click)="addToUserCart()"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        title="Add to cart">
+                        <fa-icon
+                            [icon]="addToCart"
+                            class="toggle-menue hide-menue">
+                        </fa-icon>
+                    </a>
+                </li>
+            </ul>
+            <a 
+                class="cart"
+                (click)="addToUserCart()">
+                Add to Cart
+            </a>
+            <!-- <a 
+                class="cart"
+                href="#">
+                Go to cart
+            </a> -->
+        </div>
+    </div>
+    <div class="why-text">
+        <h4>{{ course?.title }}</h4>
+        <h5>₹ {{ course?.price }}</h5>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<section class="h-custom" style="background-color: transparent;">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="">
+                <div class="card">
+                    <div class="card-body p-4">
+
+                        <div class="row">
+                            <h4>My Cart</h4>
+
+                            <div class="col-lg-7">
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <p class="mb-0">You have {{ cartData?.data?.length }} items in your cart</p>
+                                    </div>
+                                </div>
+
+                                <app-cart-item
+                                    *ngFor="let course of cartData?.data let index = index"
+                                    [index]="index"
+                                    [course]=course>
+                                </app-cart-item>
+
+                                <button [routerLink]="['/user', 'cources']" *ngIf="!cartData?.data?.length" type="button" class="btn btn-dark btn-block btn-lg">
+                                    <div class="d-flex justify-content-between">
+                                        <span>Go to Courses</span>
+                                    </div>
+                                </button>
+
+                            </div>
+
+                            <div class="col-lg-5">
+
+                                <div class="background card text-white rounded-3">
+                                    <div class="card-body">
+                                        <h5>Payment Details</h5>
+                                        <br>
+                                        <div *ngFor="let i of cartData?.data" class="d-flex justify-content-between">
+                                            <p class="mb-2">{{ i.course_details[0].title }}</p>
+                                            <p class="mb-2">₹ {{ i.course_details[0].price }}</p>
+                                        </div>
+
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-2">Total</p>
+                                            <p *ngIf="cartData" class="mb-2">{{ cartData.data | cartPrice }}</p>
+                                        </div>
+
+                                        <button
+                                            *ngIf="!paymentLoading"
+                                            (click)="pay()"
+                                            required
+                                            [disabled]="!cartData?.data?.length"
+                                            type="submit"
+                                            class="btn btn-dark btn-block">
+                                            <div class="d-flex justify-content-between">
+                                                <span>Checkout</span>
+                                            </div>
+                                        </button>
+                                        <button
+                                            *ngIf="paymentLoading"
+                                            class="btn btn-dark"
+                                            type="button"
+                                            disabled>
+                                            <span
+                                                class="spinner-border spinner-border-sm"
+                                                role="status"
+                                                aria-hidden="true">
+                                            </span>
+                                            Loading...
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

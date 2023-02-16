@@ -4,7 +4,9 @@
     <!-- Left elements -->
     <div class="d-flex">
       <!-- Brand -->
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+      <a 
+        class="navbar-brand me-2 mb-1 d-flex align-items-center" 
+        [routerLink]="['/user']" >
         <h4
           style="margin: 0px; padding: 0px;" 
           class="logo">
@@ -23,8 +25,8 @@
     <!-- Right elements -->
     <ul class="navbar-nav flex-row hide">
 
-      <li class="nav-item me-3 me-lg-1 nav-routes">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+      <li class="nav-item me-3 me-lg-1 nav-routes" [routerLink]="['/user']">
+        <a class="nav-link d-sm-flex align-items-sm-center">
           <img
             src="https://e7.pngegg.com/pngimages/48/511/png-clipart-computer-icons-home-home-angle-text-thumbnail.png"
             class="rounded-circle" 
@@ -36,7 +38,7 @@
       </li>
 
       <li class="nav-item me-3 me-lg-1 nav-routes">
-        <a class="nav-link d-sm-flex align-items-sm-center" href="#">
+        <a class="nav-link d-sm-flex align-items-sm-center" [routerLink]="['/user/cources']">
           <img
             src="https://previews.123rf.com/images/juliarstudio/juliarstudio1602/juliarstudio160201033/51642835-human-brain-black-simple-icon-isolated-on-white-background.jpg"
             class="rounded-circle" 
@@ -59,15 +61,18 @@
         </a>
       </li>
 
-      <li class="nav-item me-3 me-lg-1 nav-routes" *ngIf="loggedIn">
+      <li 
+        class="nav-item me-3 me-lg-1 nav-routes"
+        *ngIf="loggedIn">
         <a class="nav-link d-sm-flex align-items-sm-center">
           <img 
             src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" 
             class="rounded-circle" 
             height="22"
-            alt="Black and White Portrait of a Man" 
+            alt="Black and White Portrait of a Man"
             loading="lazy" />
-          <strong class="d-none d-sm-block ms-1 light-text">My Account</strong>
+          <!-- <strong class="d-none d-sm-block ms-1 light-text">My Account</strong> -->
+          <app-dropdown [title]="'My Account'"></app-dropdown>
         </a>
       </li>
 

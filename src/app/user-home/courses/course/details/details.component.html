@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- <div style="height: 40px; width: 40px; background-color: blue; position: fixed; z-index: 300; top: 200px; right: 47px; border-radius: 30%;"></div> -->
+    <div>
+        <h1
+            style="font-family: 'Courier New', Courier, monospace;">
+        </h1>
+    </div>
+    <app-play></app-play>
+    <div 
+        class="col-3 hide-modules"
+        style="float: right;">
+        <app-course-module
+            *ngFor="let i of course?.course?.modules let index = index"
+            [module]="i"
+            class="col-11 hide-modules"
+            style="float: right; background-color: #D9D9D9; margin: 2px; padding: 2px;">
+        </app-course-module>
+    </div>
+    <div class="col-12 col-md-9" style="background-color: #cac8c8; height: 200px;">
+        <app-course-module
+            *ngFor="let i of course?.course?.modules let index = index"
+            [module]="i"
+            class="col-12 hide-big"
+            style="background-color: #D9D9D9; margin: 2px; padding: 2px;">
+        </app-course-module>
+    </div>
+</div>

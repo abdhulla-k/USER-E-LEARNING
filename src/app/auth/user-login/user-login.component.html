@@ -1,6 +1,6 @@
 <div class="login-cintain">
-    <div class="row">
-        <div class="section-left">
+    <div class="">
+        <div class="section-left" style="height: 20px;">
         </div>
         <div class="section-right">
             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: white;">Login</p>
@@ -19,7 +19,7 @@
                     email
                     #emailLocal="ngModel"
                     required/>
-                    <p *ngIf="!emailLocal.valid && emailLocal.touched" style="padding: 0px; margin: 0px; color: red;">enter a valid email</p>
+                    <p *ngIf="!emailLocal.valid && emailLocal.touched" style="padding: 0px; margin: 0px;" class="show-hint">enter a valid email</p>
                   <label class="form-label" for="form3Example3c">Your Email</label>
                 </div>
               </div>
@@ -35,6 +35,13 @@
                     ngModel
                     required/>
                   <label class="form-label" for="form3Example4c">Password</label>
+                </div>
+              </div>
+
+              <div *ngIf="errorMessage" class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <label style="padding: 0px; margin: 0px;" class="form-label show-hint" for="form3Example4c">Make sure you filled all  fields</label>
                 </div>
               </div>
 
