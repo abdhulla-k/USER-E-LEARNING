@@ -33,6 +33,13 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+.section-left-svg {
+    width: 600px;
+    border-radius: 25px;
+    margin-left: 20%;
+    margin-top: 20%;
+}
+
 @media screen and (min-width: 280px) and (max-width: 375px) {
 
     .section-right {
@@ -49,6 +56,11 @@ input.ng-invalid.ng-touched {
 
     .section-left {
         width: 0%;
+    }
+
+    .section-left-svg {
+        width: 0%;
+        height: 0px;
     }
 }
 
@@ -68,6 +80,11 @@ input.ng-invalid.ng-touched {
 
     .section-left {
         width: 0%;
+    }
+
+    .section-left-svg {
+        width: 0%;
+        height: 0px;
     }
 }
 
@@ -107,20 +124,33 @@ input.ng-invalid.ng-touched {
     .section-left {
         width: 0%;
     }
+
+    .section-left-svg {
+        width: 0%;
+        height: 0px;
+    }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1500px) {
     .section-right {
-        padding: 220px 150px 220px 80px;
+        /* padding: 220px 150px 220px 80px; */
+        padding: 228px 42px 61px 36px;
         background-color: rgb(32.2%, 47.5%, 43.5%);
-        width: 70%;
+        width: 50%;
         border-top-left-radius: 35px;
         border-bottom-left-radius: 35px;
         height: 98vh;
     }
 
     .section-left {
-        width: 30%;
+        width: 50%;
+    }
+
+    .section-left-svg {
+        width: 420px;
+        border-radius: 25px;
+        margin-left: 20%;
+        margin-top: 50%;
     }
 
 }
@@ -137,6 +167,13 @@ input.ng-invalid.ng-touched {
 
     .section-left {
         width: 20%;
+    }
+
+    .section-left-svg {
+        width: 0px;
+        border-radius: 0px;
+        margin-left: 0%;
+        margin-top: 0%;
     }
 
 }

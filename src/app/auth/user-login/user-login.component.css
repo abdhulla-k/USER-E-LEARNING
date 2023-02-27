@@ -37,6 +37,14 @@ input.ng-invalid.ng-touched {
     color: #ff9a00;
 }
 
+.section-left-svg {
+    width: 600px;
+    border-radius: 25px;
+    margin-left: 20%;
+    margin-top: 20%;
+    box-shadow: 0 0 8px 8px red inset;
+}
+
 /* #form3Example4c {
     border-color: green;
     border: 2px solid green;
@@ -62,6 +70,11 @@ input.ng-invalid.ng-touched {
     .section-left {
         width: 0%;
     }
+
+    .section-left-svg {
+        width: 0%;
+        height: 0px;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 280px) {
@@ -83,16 +96,51 @@ input.ng-invalid.ng-touched {
         width: 0%;
         height: 0px;
     }
+
+    .section-left-svg {
+        width: 0%;
+        height: 0px;
+    }
 }
 
-@media screen and (min-width: 900px) and (max-width: 1500px) {
+@media screen and (min-width: 900px) and (max-width: 1200px) {
     .section-right {
-        padding: 220px 150px 220px 80px;
+        padding: 249px 41px 201px 24px;
         background-color: rgb(32.2%, 47.5%, 43.5%);
-        width: 70%;
         border-top-left-radius: 35px;
         border-bottom-left-radius: 35px;
         height: 98vh;
+    }
+
+    .section-left-svg {
+        width: 420px;
+        border-radius: 25px;
+        margin-left: 20%;
+        margin-top: 50%;
+        box-shadow: 0 0 8px 8px red inset;
+    }
+
+    .section-left {
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+    .section-right {
+        padding: 220px 150px 220px 80px;
+        background-color: rgb(32.2%, 47.5%, 43.5%);
+        width: 50%;
+        border-top-left-radius: 35px;
+        border-bottom-left-radius: 35px;
+        height: 98vh;
+    }
+
+    .section-left-svg {
+        width: 600px;
+        border-radius: 25px;
+        margin-left: 20%;
+        margin-top: 40%;
     }
 
     .section-left {
@@ -103,12 +151,20 @@ input.ng-invalid.ng-touched {
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
     .section-right {
-        padding: 220px 150px 220px 80px;
+        /* padding: 220px 150px 220px 80px; */
+        padding: 339px 105px 220px 80px;
         background-color: rgb(32.2%, 47.5%, 43.5%);
         width: 80%;
         border-top-left-radius: 35px;
         border-bottom-left-radius: 35px;
         height: 98vh;
+    }
+
+    .section-left-svg {
+        width: 0px;
+        border-radius: 0px;
+        margin-left: 0%;
+        margin-top: 0%;
     }
 
     .section-left {
